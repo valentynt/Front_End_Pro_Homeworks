@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="reset.css">
+    <title>Java Script</title>
+
+    <style>
+        .calc {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            margin-left: 15px;
+        }
+
+        .container {
+            padding: 15px 15px 15px 15px;
+        }
+
+        .content {
+            border: 1px solid black;
+            margin-bottom: 10px;
+            font-size: 25px;
+            line-height: 35px;
+        }
+
+        table {
+            margin: 15px 15px 15px 0px;
+            width: 100%;
+        }
+
+        td button {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="box">
+            <div class="content" contenteditable="true"></div>
+            <button class="btnClear">Очистить</button>
+        </div>
+        <div class="clear-fix"></div>
+        <div class="myTable"></div>
+    </div>
+
+    <form id="calculator" action="">
+        <div class="calc">
+            <input type="radio" name="action" value="sale">Sale
+            <input type="radio" name="action" value="buy">Buy
+        </div>
+        <div class="calc">
+            <select name="currency" id="carrencyFrom">
+                <option value="usd">USD</option>
+                <option value="eur">EUR</option>
+                <option value="uah" selected>UAH</option>
+            </select>
+        </div>
+        <div class="calc">
+            <select name="currency" id="carrencyIn">
+                <option value="usd">USD</option>
+                <option value="eur">EUR</option>
+                <option value="uah" selected>UAH</option>
+            </select>
+        </div>
+        <div class="calc">
+            <input type="text" name="sum" id="sum" placeholder="Enter the sum">
+        </div>
+        <div class="calc">
+            <input type="text" name="result" id="result">
+        </div>
+        <button class="calc" type="submit" id="calculate">Calculate</button>
+    </form>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
