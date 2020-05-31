@@ -2,30 +2,31 @@
 
 
 
-const person = {
-    name: 'Valentyn',
+const bind = function (fn, context) {
+    const necessaryArgsCount = 2;
+    const bindArgs = Array.prototype.slice.call(arguments, necessaryArgsCount);
+
+    return function () {
+        const fnArgs = Array.prototype.slice.call(arguments);
+        return fn.apply(context, bindArgs.concat(fnArgs));
+    }
 };
 
-function info(phone, email) {
-    console.log(`Имя: ${this.name}, Тел.: ${phone}, Email: ${email}`);
-};
 
-function myBind(fn, context, ...rest) {
-    return function (...args) {
-        const uniqId = Date.now().toString();
+function sayHello(phrase, symbol) {
+    console.log(arguments);
 
-        context[uniqId] = fn;
+    return `${phrase} ${this.firstName}${symbol}`;
+}
 
-        const result = context[uniqId](...rest.concat(args));
+const oleg = {
+    firstName: 'Oleg',
+    age: 20
+}
 
-        delete context[uniqId];
+const foo = bind(sayHello, oleg, 'Hello');
 
-        return result;
-    };
-};
-
-myBind(info, person)('737535898', 'valentyntyrtychko@gmail.com');
-myBind(info, person, '737535898', 'valentyntyrtychko@gmail.com')();
+console.log(foo('!'));
 
 
 
